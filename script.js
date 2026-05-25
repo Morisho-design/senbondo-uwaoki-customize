@@ -194,7 +194,82 @@ document.addEventListener("DOMContentLoaded", () => {
       root.appendChild(box);
     });
   }
+async function buildExportSheet() {
+      imgs.map((img) => {
+        return new Promise((resolve) => {
+          if (img.complete) {
+            resolve();
+          } else {
+            img.onload = resolve;
+            img.onerror = resolve;
+          }
+        });
+      })
+    );
+  }
 
+  async function exportAsImage() {
+    try {
+      await buildExportSheet();
+
+      const sheet = $("exportSheet");
+
+      const canvas = await html2canvas(sheet, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: "#ffffff"
+      });
+
+      const link = document.createElement("a");
+      link.download = "senbondo-customize.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+
+      toast("画像を保存しました");
+    } catch (e) {
+      console.error(e);
+      toast("画像保存に失敗しました");
+    }
+  }
+
+  async function exportAsPDF() {
+    try {
+      await buildExportSheet();
+
+      const sheet = $("exportSheet");
+
+      const canvas = await html2canvas(sheet, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: "#ffffff"
+      });
+
+      const imgData = canvas.toDataURL("image/png");
+
+      const { jsPDF } = window.jspdf;
+
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4"
+      });
+
+      const pageWidth = 210;
+      const pageHeight = 297;
+
+      pdf.addImage(imgData, "PNG", 0, 0, pageWidth, pageHeight);
+
+      pdf.save("senbondo-customize.pdf");
+
+      toast("PDFを保存しました");
+    } catch (e) {
+      console.error(e);
+      toast("PDF保存に失敗しました");
+    }
+  }
+
+  $("pdfBtn")?.addEventListener("click", exportAsPDF);
+  $("imageBtn")?.addEventListener("click", exportAsImage);
   function resetAll() {
     setImg("layer-base", BASE_FILE);
 
