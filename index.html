@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>千本堂カスタマイズ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+    <section class="viewerCard">
+      <div class="stage" id="stage">
+        <img id="layer-base" class="layer" alt="base">
+        <img id="layer-back" class="layer" alt="back">
+        <img id="layer-center" class="layer" alt="center">
+        <img id="layer-door" class="layer" alt="door">
+      </div>
+    </section>
+
+    <aside class="menuCard">
+      <div class="header">
+        <h1>千本堂カスタマイズ</h1>
+        <div class="headerBtns">
+          <button id="resetBtn" class="resetBtn" type="button">初期状態に戻す</button>
+        </div>
+      </div>
+      <div id="controls"></div>
+
+      <div class="current">
+        <h4>現在の選択</h4>
+        <div class="row"><div class="k">上台戸板</div><div class="v" id="sel-door">通常</div></div>
+        <div class="row"><div class="k">背板中央</div><div class="v" id="sel-center">未選択</div></div>
+        <div class="row"><div class="k">背板全面</div><div class="v" id="sel-back">通常</div></div>
+      </div>
+
+      <div class="memoBox">
+        <h4>備考</h4>
+        <textarea id="memo" placeholder="備考を入力してください"></textarea>
+
+        <div class="field">
+          <label for="staffName">担当者名</label>
+          <div class="inputSuffixWrap">
+            <input id="staffName" type="text" placeholder="担当者名を入力">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="customerName">お客様名</label>
+          <div class="inputSuffixWrap">
+            <input id="customerName" type="text" placeholder="お客様名を入力">
+            <span class="inputSuffix">様</span>
+          </div>
+        </div>
+
+        <div class="bottomActions twoBtns">
+          <button id="pdfBtn" class="pdfBtn" type="button">PDF出力</button>
+          <button id="imageBtn" class="pdfBtn" type="button">画像で保存</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <div id="exportSheet" class="exportSheet">
+    <div id="exportTitle" class="exportTitle"></div>
+    <div id="exportMeta" class="exportMeta"></div>
+
+    <div class="exportImageSection">
+      <div class="exportImageWrap">
+        <div class="exportStage">
+          <img id="exp-base" class="exportLayer" alt="">
+          <img id="exp-back" class="exportLayer" alt="">
+          <img id="exp-center" class="exportLayer" alt="">
+          <img id="exp-hashira" class="exportLayer" alt="">
+          <img id="exp-door" class="exportLayer" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="exportDetailSection">
+      <div class="exportSection">
+        <h3>選択仕様</h3>
+        <div class="exportLine">上台戸板：<span id="exp-sel-door"></span></div>
+        <div class="exportLine">背板中央：<span id="exp-sel-center"></span></div>
+        <div class="exportLine">背板柱：<span id="exp-sel-hashira"></span></div>
+        <div class="exportLine">背板全面：<span id="exp-sel-back"></span></div>
+      </div>
+
+      <div class="exportSection">
+        <h3>備考</h3>
+        <div id="exp-memo" class="exportMemo"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
