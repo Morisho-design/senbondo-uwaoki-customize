@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { id: "towazakura-kokutan", label: "永遠桜（黒丹）", file: "center/center_towazakura-kokutan.png" },
         { id: "towazakura-shitan", label: "永遠桜（紫丹）", file: "center/center_towazakura-shitan.png" },
         { id: "towazakura-w", label: "永遠桜（ウォールナット）", file: "center/center_towazakura-w.png" }
-  　    { id: "seitanashi", label: "未選択", file: "center/seitanashi.png" },
+  　    { id: "seitanashi", label: "背板中央無し", file: "center/seitanashi.png" },
       ],
       defaultId: "normal"
     },
