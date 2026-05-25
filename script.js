@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
       layerId: "layer-center",
       selId: "sel-center",
       options: [
-        { id: "normal", label: "未選択", file: "center/center_normal2.png" },
+        { id: "normal", label: "未選択", file: "center/center_normal.png" },
         { id: "luminous", label: "ルミナス", file: "center/center_luminous.png" },
         { id: "kokutan", label: "黒丹調", file: "center/center_kokutan.png" },
         { id: "shitan", label: "紫丹調", file: "center/center_shitan.png" },
@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { id: "towazakura-kokutan", label: "永遠桜（黒丹）", file: "center/center_towazakura-kokutan.png" },
         { id: "towazakura-shitan", label: "永遠桜（紫丹）", file: "center/center_towazakura-shitan.png" },
         { id: "towazakura-w", label: "永遠桜（ウォールナット）", file: "center/center_towazakura-w.png" }
+  　    { id: "seitanashi", label: "未選択", file: "center/seitanashi.png" },
       ],
       defaultId: "normal"
     },
